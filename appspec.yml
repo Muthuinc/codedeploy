@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /usr/share/nginx/html/
+    permission: sudo
+
+hooks:
+  BeforeInstall:
+    - location: scripts/install.sh
+      runas: root
+
+  AfterInstall:
+    - location: scripts/start.sh
+      runas: root
+
+  
